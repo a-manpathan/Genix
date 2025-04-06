@@ -1,0 +1,183 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 240 80% 74%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 240 5.9% 26%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 240 80% 74%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 16 100% 65%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 240 80% 74%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 11% 14%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 19% 26%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 11% 14%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 240 80% 74%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 240 19% 26%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 19% 26%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 240 80% 74%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 16 100% 65%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 19% 26%;
+    --input: 240 19% 26%;
+    --ring: 240 80% 74%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  .hero-gradient {
+    background: linear-gradient(90deg, rgba(30, 30, 46, 0.9), rgba(58, 58, 86, 0.9));
+  }
+  .feature-card {
+    @apply bg-white dark:bg-genix-cardBg border border-gray-200 dark:border-gray-700 p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-genix-accent/50;
+  }
+  .cta-primary {
+    @apply bg-genix-accent text-white hover:bg-genix-accent/90 font-semibold py-2.5 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px];
+  }
+  .cta-secondary {
+    @apply bg-white dark:bg-genix-cardBg text-genix-darkBlue dark:text-white hover:bg-[#F8FAFC] dark:hover:bg-gray-700 font-semibold py-2.5 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px];
+  }
+  .cta-orange {
+    @apply bg-genix-orange text-white hover:bg-genix-orange/90 font-semibold py-2.5 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px];
+  }
+  
+  /* Enhanced interactive elements */
+  .interactive-link {
+    @apply relative text-genix-accent hover:text-genix-accent/90 dark:text-genix-accent/90 dark:hover:text-genix-accent transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px];
+  }
+  
+  .icon-hover {
+    @apply transition-all duration-300 hover:text-genix-accent hover:scale-110;
+  }
+  
+  .nav-link {
+    @apply relative transition-colors duration-300 text-genix-darkBlue dark:text-white hover:text-genix-accent dark:hover:text-genix-accent;
+  }
+  
+  /* Responsive utilities */
+  .responsive-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  .responsive-padding {
+    @apply py-8 px-4 sm:py-12 sm:px-6 lg:py-16 lg:px-8;
+  }
+}
+
+@layer components {
+  /* Enhanced buttons */
+  .btn-hover {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  
+  .btn-hover::after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-white/20 scale-x-0 origin-left transition-transform duration-300;
+  }
+  
+  .btn-hover:hover::after {
+    @apply scale-x-100;
+  }
+  
+  /* Image hover effects */
+  .image-hover {
+    @apply overflow-hidden;
+  }
+  
+  .image-hover img {
+    @apply transition-transform duration-500 hover:scale-105;
+  }
+}
+
+@layer components {
+  /* Add dark mode support to existing components */
+  .card {
+    @apply bg-white dark:bg-genix-cardBg text-genix-darkBlue dark:text-white border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .input {
+    @apply bg-white dark:bg-genix-cardBg border border-gray-200 dark:border-gray-700 text-genix-darkBlue dark:text-white focus:ring-2 focus:ring-genix-accent focus:border-transparent;
+  }
+
+  .button {
+    @apply bg-genix-accent text-white hover:bg-genix-accent/90 dark:hover:bg-genix-accent/80 transition-colors duration-300;
+  }
+
+  .section {
+    @apply bg-white dark:bg-genix-darkBlue transition-colors duration-300;
+  }
+
+  .heading {
+    @apply text-genix-darkBlue dark:text-white transition-colors duration-300;
+  }
+
+  .subheading {
+    @apply text-gray-600 dark:text-gray-300 transition-colors duration-300;
+  }
+
+  .text-content {
+    @apply text-gray-700 dark:text-gray-200 transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .hover-off-white {
+    @apply hover:bg-[#F8FAFC];
+  }
+}
