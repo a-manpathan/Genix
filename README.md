@@ -1,8 +1,8 @@
-# Welcome to your Genix project
+# Welcome to project Genix
 
 ## Project info
 
-**URL**: 
+**URL**: https://gxai.vercel.app/
 
 
 **Use your preferred IDE**
